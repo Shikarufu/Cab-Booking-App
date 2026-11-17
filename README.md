@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚗 Cab Booking App (Full-Stack Ride-Hailing Platform)
 
-## Getting Started
+A full-stack ride-hailing web application built as an internship project. This application connects riders and drivers in real time, featuring secure authentication, live route tracking, dynamic fare estimation, and integrated payment processing.
 
-First, run the development server:
+---
 
+## ✨ Key Features
+
+* **User Authentication & Role Management:** Secure sign-up, login, social auth, and profile management powered by **Clerk**.
+* **Ride Booking System:** Interactive pickup and drop-off selection with instant fare calculation.
+* **Driver Dashboard:** Dedicated interface for drivers to view, accept, or decline incoming ride requests.
+* **Real-Time Tracking & Maps:** Live GPS route rendering, driver tracking, and ETA updates via **Google Maps API** and real-time sockets/database listeners.
+* **Secure Payments:** End-to-end payment processing for riders and earnings management for drivers using **Stripe**.
+* **Ride History & Digital Receipts:** Complete trip logs with downloadable payment receipts.
+* **Ratings & Reviews:** Two-way rating and feedback system to maintain service quality.
+* **Responsive Design:** Mobile-first UI built with **Tailwind CSS** for seamless use across desktop and mobile devices.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** Next.js (App Router), React, TypeScript
+* **Styling:** Tailwind CSS
+* **Authentication:** Clerk
+* **Backend & Database:** Next.js API Routes / Node.js, Supabase (PostgreSQL)
+* **APIs & Integrations:** Google Maps API, Stripe Payment Gateway
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the project locally on your machine.
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd cab-booking-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Configure Environment Variables
+Create a `.env.local` file in the root directory of the project and add the required API keys (do **not** commit this file to Git):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
 
-## Learn More
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
 
-To learn more about Next.js, take a look at the following resources:
+# Database (Supabase) - To be added in Day 2
+# NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Google Maps API - To be added in Day 4
+# NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Stripe Payments - To be added in Day 8
+# NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+# STRIPE_SECRET_KEY=your_stripe_secret_key
+```
 
-## Deploy on Vercel
+### 4. Run the Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📅 2-Week Development Roadmap
+
+### Week 1: Setup & Core Features
+- [x] **Day 1:** Project initialization (Next.js + Tailwind CSS) & Clerk authentication setup
+- [ ] **Day 2:** Database setup (Supabase/PostgreSQL) & data models (Users, Rides, Payments)
+- [ ] **Day 3:** User dashboard & profile management
+- [ ] **Day 4:** Google Maps integration & ride request system
+- [ ] **Day 5:** Driver dashboard & ride matching logic
+- [ ] **Day 6:** Real-time ride status updates & notifications
+- [ ] **Day 7:** Testing & bug fixes
+
+### Week 2: Payments, Reviews & Deployment
+- [ ] **Day 8:** Stripe payment gateway integration
+- [ ] **Day 9:** Ride history & receipt generation
+- [ ] **Day 10:** Driver ratings & review system
+- [ ] **Day 11:** UI/UX polish & mobile responsiveness
+- [ ] **Day 12:** API security & performance optimization
+- [ ] **Day 13:** End-to-end workflow testing
+- [ ] **Day 14:** Production deployment on Vercel
