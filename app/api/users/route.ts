@@ -15,7 +15,7 @@ export async function POST() {
           .upsert({
                clerk_id:user.id,
                name,email,
-               profile_image:user.imageUrl,
+               profile_img:user.imageUrl,
           },{
                onConflict:'clerk_id'
           })
