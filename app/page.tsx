@@ -1,15 +1,25 @@
-import { Suspense } from 'react';
-import Link from 'next/link';
-import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
+"use client";
+
+import { Suspense, useEffect } from "react";
+import Link from "next/link";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import "leaflet/dist/leaflet.css";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "CabGo | Home";
+  }, []);
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
       {/* Header */}
       <header className="flex items-center justify-between border-b border-zinc-200 bg-white px-6 py-4 dark:border-zinc-800 dark:bg-zinc-900">
         <span className="text-xl font-bold tracking-tight">CabGo</span>
         <div className="flex items-center gap-4">
-          <Suspense fallback={<div className="h-9 w-24 animate-pulse rounded-lg bg-zinc-200 dark:bg-zinc-800" />}>
+          <Suspense
+            fallback={
+              <div className="h-9 w-24 animate-pulse rounded-lg bg-zinc-200 dark:bg-zinc-800" />
+            }
+          >
             <Show when="signed-out">
               <SignInButton mode="modal" forceRedirectUrl="/dashboard">
                 <button className="cursor-pointer text-sm font-medium hover:underline">
@@ -41,11 +51,16 @@ export default function Home() {
           Get there safely, fast, and on your schedule.
         </h1>
         <p className="mt-4 max-w-lg text-lg text-zinc-600 dark:text-zinc-400">
-          Book a ride in seconds or switch to Driver mode to start accepting trips in your city.
+          Book a ride in seconds or switch to Driver mode to start accepting
+          trips in your city.
         </p>
 
         <div className="mt-8 flex gap-4">
-          <Suspense fallback={<div className="h-12 w-36 animate-pulse rounded-lg bg-zinc-200 dark:bg-zinc-800" />}>
+          <Suspense
+            fallback={
+              <div className="h-12 w-36 animate-pulse rounded-lg bg-zinc-200 dark:bg-zinc-800" />
+            }
+          >
             <Show when="signed-out">
               <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
                 <button className="cursor-pointer rounded-lg bg-black px-6 py-3 text-base font-medium text-white hover:bg-zinc-800 dark:bg-white dark:text-black">
